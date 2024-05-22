@@ -1,0 +1,28 @@
+.scoreGraph{
+    position: relative;
+    background-color: $color-graph-gray;
+    border-radius: 5px;
+
+    font-size: 15px;
+
+    min-width: 200px;
+    max-width: 260px;
+    width: 19vw;
+
+    min-height: 200px;
+    max-height: 260px;
+    height: 19vw;
+
+    &__text{
+        font-size: 16px;
+        fill: $color-graph-black;
+        text-anchor: middle;
+    }
+
+    &__value{
+        font-size: 26px;
+        fill: $color-graph-black;
+        text-anchor: middle;
+        font-weight: bold;
+    }
+}

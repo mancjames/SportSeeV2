@@ -1,0 +1,14 @@
+.header{
+    font-size: 1.5rem;
+    &-intro{
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        &--name{
+            color: $color-red;
+        }
+    }
+    &-goal{
+        font-weight: 300;
+    }
+
+}

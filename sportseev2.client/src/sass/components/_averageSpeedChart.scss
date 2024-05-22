@@ -1,0 +1,31 @@
+.averageSpeedGraph{
+    background-color: $color-graph-red--light;
+    border-radius: 5px;
+
+    font-size: 15px;
+
+    min-width: 200px;
+    max-width: 260px;
+    width: 19vw;
+    min-height: 200px;
+    max-height: 260px;
+    height: 19vw;
+
+    &__tooltip{
+        background-color: $color-white;
+        color: $color-black;
+        line-height: 40px;
+        padding: 0 8px;
+        font-size: 8px;
+    }
+
+    &__legend{
+        font-size: 12px;
+        line-height: 26px;
+        fill: $color-black;
+    }
+
+    &__title{
+        fill:transparentize(#FFFFFF, 0.5);
+    }
+}

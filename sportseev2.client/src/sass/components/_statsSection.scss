@@ -1,0 +1,28 @@
+.statsSection{
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 2rem;
+    min-height: 500px;
+    max-height: 610px;
+    height: 70vh;
+
+    &__activity{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-right: 2rem;
+
+        &-detail{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+    }
+
+    &__nutrition{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}

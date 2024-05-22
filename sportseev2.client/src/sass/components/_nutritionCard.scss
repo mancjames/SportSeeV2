@@ -1,0 +1,59 @@
+   
+.nutritionCard{
+    width: 18vw;
+    min-width: 180px;
+    max-width: 258px;
+
+    min-height: 90px;
+    max-height: 124px;
+    height: 10vh;
+
+    background-color: $color-graph-gray;
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    padding: 3em;
+
+    @media (max-width: 1230px) {
+        padding: 15px;
+    }
+
+    &__icon{
+        min-width: 60px;
+        height: 60px;
+        border-radius: 6px;
+
+        font-size: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: lighten($color-nutrition--calories,45%);
+        color: $color-nutrition--calories;
+
+        &--protein{
+            background-color: lighten($color-nutrition--proteins,30%);
+            color: $color-nutrition--proteins;
+        }
+
+        &--carb{
+            background-color: lighten($color-nutrition--carbohydrates,42%);
+            color: $color-nutrition--carbohydrates;
+        }
+
+        &--lipid{
+            background-color: lighten($color-nutrition--lipids,30%);
+            color: $color-nutrition--lipids;
+        }
+    }
+
+    &__info{
+        color: $color-graph-black;
+        margin-left: 2em;
+        
+        &-value{
+            font-size: 1.5em;
+        }
+    }
+}

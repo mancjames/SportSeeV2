@@ -1,0 +1,14 @@
+.navhorizontal{
+    @include flex-center;
+    font-size: 2.4em;
+    background-color: $color-black;
+    color: $color-white;
+    padding: 1rem 3rem;
+    height: 3.5em;
+    @include shadow;
+    &__list{
+        list-style-type: none;
+        @include flex-around;
+        flex: 1;
+    }
+}

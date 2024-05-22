@@ -1,0 +1,21 @@
+@import './base/_variables.module.scss';
+@import './base/global.scss';
+
+@import './utils/mixins.scss';
+
+@import './components/dailyActivityGraph';
+@import './components/header';
+@import './components/averageSpeedChart';
+@import './components/performanceRadarChart';
+@import './components/scoreGraph';
+@import './components//nutritionCard';
+@import './components/navigationHorizontal.scss';
+@import './components//navigationVerticle.scss';
+@import './components/statsSection.scss';
+
+@import './pages/error';
+@import './pages/dashboard.scss';
+@import './pages/home.scss';
+
+
+@import './app.scss'

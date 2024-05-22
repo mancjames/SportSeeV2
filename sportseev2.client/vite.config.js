@@ -1,7 +1,7 @@
 import { fileURLToPath, URL } from 'node:url';
-
 import { defineConfig } from 'vite';
-import plugin from '@vitejs/plugin-react';
+import react from '@vitejs/plugin-react';
+import svgr from 'vite-plugin-svgr';
 import fs from 'fs';
 import path from 'path';
 import child_process from 'child_process';
@@ -15,7 +15,7 @@ const certificateArg = process.argv.map(arg => arg.match(/--name=(?<value>.+)/i)
 const certificateName = certificateArg ? certificateArg.groups.value : "sportseev2.client";
 
 if (!certificateName) {
-    console.error('Invalid certificate name. Run this script in the context of an npm/yarn script or pass --name=<<app>> explicitly.')
+    console.error('Invalid certificate name. Run this script in the context of an npm/yarn script or pass --name=<<app>> explicitly.');
     process.exit(-1);
 }
 
@@ -31,14 +31,17 @@ if (!fs.existsSync(certFilePath) || !fs.existsSync(keyFilePath)) {
         '--format',
         'Pem',
         '--no-password',
-    ], { stdio: 'inherit', }).status) {
+    ], { stdio: 'inherit' }).status) {
         throw new Error("Could not create certificate.");
     }
 }
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [plugin()],
+    plugins: [
+        react(),
+        svgr(), // Ensure SVGR plugin is correctly added
+    ],
     resolve: {
         alias: {
             '@': fileURLToPath(new URL('./src', import.meta.url))
@@ -57,4 +60,4 @@ export default defineConfig({
             cert: fs.readFileSync(certFilePath),
         }
     }
-})
+});
