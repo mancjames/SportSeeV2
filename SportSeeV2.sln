@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34601.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportSeeV2.Server", "SportSeeV2.Server\SportSeeV2.Server.csproj", "{00593B2D-39E2-47D6-87E7-F2BF9DCBACBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportSeeV2.Server", "SportSeeV2.Server\SportSeeV2.Server.csproj", "{00593B2D-39E2-47D6-87E7-F2BF9DCBACBD}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "sportseev2.client", "sportseev2.client\sportseev2.client.esproj", "{F0447C1B-F6F0-41BD-9CA4-010DC843AE04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportSeeV2.Tests", "SportSeeV2.Tests\SportSeeV2.Tests.csproj", "{9B2251BC-450A-41CE-B495-29ABF07240EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{F0447C1B-F6F0-41BD-9CA4-010DC843AE04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0447C1B-F6F0-41BD-9CA4-010DC843AE04}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F0447C1B-F6F0-41BD-9CA4-010DC843AE04}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9B2251BC-450A-41CE-B495-29ABF07240EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B2251BC-450A-41CE-B495-29ABF07240EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B2251BC-450A-41CE-B495-29ABF07240EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B2251BC-450A-41CE-B495-29ABF07240EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
