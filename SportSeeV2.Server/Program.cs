@@ -12,7 +12,7 @@ builder.Services.AddDbContext<SportSeeDbContext>(options =>
     options.UseSqlite(connectionString);
     options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 });
-
+builder.Services.AddScoped<UserMainRepository>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
