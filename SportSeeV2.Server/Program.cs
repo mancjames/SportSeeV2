@@ -1,14 +1,23 @@
+using Microsoft.EntityFrameworkCore;
+using SportSeeV2.Server.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+var folder = Environment.SpecialFolder.LocalApplicationData;
+var path = Environment.GetFolderPath(folder);
+var connectionString = $"Data Source={Path.Join(path, "sportsee.db")}";
+
+builder.Services.AddDbContext<SportSeeDbContext>(options =>
+{
+    options.UseSqlite(connectionString);
+    options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+});
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
