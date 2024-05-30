@@ -43,5 +43,37 @@ namespace SportSeeV2.Server.Data
 
             return userDtos.ToList();
         }
+
+        public async Task<UserMainDto> GetId(int id)
+        {
+            var user = await _context.UserMainEntities
+                 .Include(u => u.UserInfos)
+                 .Include(u => u.KeyData)
+                 .FirstOrDefaultAsync(x => x.Id == id);
+
+            if (user == null)
+                return null;
+            
+            
+            var userDtos = new UserMainDto(
+                 user.Id,
+                 new UserInfosDto(
+                     user.UserInfos.Id,
+                     user.UserInfos.FirstName,
+                     user.UserInfos.LastName,
+                     user.UserInfos.Age
+                 ),
+                 user.TodayScore,
+                 new KeyDataDto(
+                     user.KeyData.Id,
+                     user.KeyData.CalorieCount,
+                     user.KeyData.ProteinCount,
+                     user.KeyData.CarbohydrateCount,
+                     user.KeyData.LipidCount
+                 )
+             );
+
+            return userDtos;
+        }
     }
 }

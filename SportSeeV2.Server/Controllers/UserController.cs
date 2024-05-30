@@ -25,5 +25,16 @@ namespace SportSeeV2.Server.Controllers
             var users = await _userRepository.GetAll();
             return Ok(users);
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<UserMainDto>> Get(int id)
+        {
+            var user = await _userRepository.GetId(id);
+            if (user == null)
+            {
+                return Problem($"User with ID {id} not found.");
+            }
+            return Ok(user);
+        }
     }
 }
