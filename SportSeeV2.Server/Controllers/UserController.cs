@@ -12,10 +12,10 @@ namespace SportSeeV2.Server.Controllers
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
-        private readonly UserMainRepository _userRepository;
-        private readonly ActivitySessionRepository _activitySessionRepository;
+        private readonly IUserMainRepository _userRepository;
+        private readonly IActivitySessionRepository _activitySessionRepository;
 
-        public UserController(UserMainRepository userRepository, ActivitySessionRepository activitySessionRepository)
+        public UserController(IUserMainRepository userRepository, IActivitySessionRepository activitySessionRepository)
         {
             _userRepository = userRepository;
             _activitySessionRepository = activitySessionRepository;

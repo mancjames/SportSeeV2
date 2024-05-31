@@ -12,8 +12,8 @@ builder.Services.AddDbContext<SportSeeDbContext>(options =>
     options.UseSqlite(connectionString);
     options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 });
-builder.Services.AddScoped<UserMainRepository>();
-builder.Services.AddScoped<ActivitySessionRepository>();
+builder.Services.AddScoped<IUserMainRepository, UserMainRepository>();
+builder.Services.AddScoped<IActivitySessionRepository, ActivitySessionRepository>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

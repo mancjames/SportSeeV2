@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace SportSeeV2.Server.Data
 {
-    public class UserMainRepository
+    public interface IUserMainRepository
+    {
+        Task<List<UserMainDto>> GetAll();
+        Task<UserMainDto> GetId(int id);
+    }
+    public class UserMainRepository : IUserMainRepository
     {
         private readonly SportSeeDbContext _context;
 
@@ -23,25 +28,8 @@ namespace SportSeeV2.Server.Data
                  .Include(u => u.KeyData)
                  .ToListAsync();
 
-            var userDtos = users.Select(u => new UserMainDto(
-                 u.Id,
-                 new UserInfosDto(
-                     u.UserInfos.Id,
-                     u.UserInfos.FirstName,
-                     u.UserInfos.LastName,
-                     u.UserInfos.Age
-                 ),
-                 u.TodayScore,
-                 new KeyDataDto(
-                     u.KeyData.Id,
-                     u.KeyData.CalorieCount,
-                     u.KeyData.ProteinCount,
-                     u.KeyData.CarbohydrateCount,
-                     u.KeyData.LipidCount
-                 )
-             ));
-
-            return userDtos.ToList();
+            var userDtos = users.Select(u => MapToUserMainDto(u)).ToList();
+            return userDtos;
         }
 
         public async Task<UserMainDto> GetId(int id)
@@ -51,29 +39,28 @@ namespace SportSeeV2.Server.Data
                  .Include(u => u.KeyData)
                  .FirstOrDefaultAsync(x => x.Id == id);
 
-            if (user == null)
-                return null;
-            
-            
-            var userDtos = new UserMainDto(
-                 user.Id,
-                 new UserInfosDto(
-                     user.UserInfos.Id,
-                     user.UserInfos.FirstName,
-                     user.UserInfos.LastName,
-                     user.UserInfos.Age
-                 ),
-                 user.TodayScore,
-                 new KeyDataDto(
-                     user.KeyData.Id,
-                     user.KeyData.CalorieCount,
-                     user.KeyData.ProteinCount,
-                     user.KeyData.CarbohydrateCount,
-                     user.KeyData.LipidCount
-                 )
-             );
+            return user == null ? null : MapToUserMainDto(user);
+        }
 
-            return userDtos;
+        private UserMainDto MapToUserMainDto(UserMainEntity user)
+        {
+            return new UserMainDto(
+                user.Id,
+                new UserInfosDto(
+                    user.UserInfos.Id,
+                    user.UserInfos.FirstName,
+                    user.UserInfos.LastName,
+                    user.UserInfos.Age
+                ),
+                user.TodayScore,
+                new KeyDataDto(
+                    user.KeyData.Id,
+                    user.KeyData.CalorieCount,
+                    user.KeyData.ProteinCount,
+                    user.KeyData.CarbohydrateCount,
+                    user.KeyData.LipidCount
+                )
+            );
         }
     }
 }

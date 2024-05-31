@@ -3,7 +3,11 @@ using SportSeeV2.Server.Dtos;
 
 namespace SportSeeV2.Server.Data
 {
-    public class ActivitySessionRepository
+    public interface IActivitySessionRepository
+    {
+        Task<UserActivityDto> GetActivityById(int id);
+    }
+    public class ActivitySessionRepository : IActivitySessionRepository
     {
         private readonly SportSeeDbContext _context;
 
@@ -22,15 +26,20 @@ namespace SportSeeV2.Server.Data
                 return null;
 
 
-            var userActivity = new UserActivityDto(
+            var userActivity = MapToUserActivityDto(user);
+
+            return userActivity;
+        }
+
+        private UserActivityDto MapToUserActivityDto(UserActivityEntity user)
+        {
+            return new UserActivityDto(
                  user.id,
                  user.UserMainEntityId,
                  user.ActivitySessions.Select(s => new ActivitySessionsDto(
                     s.day.ToString("dd/MM/yyyy"), s.kilogram, s.calories
                 )).ToArray()
-             );
-
-            return userActivity;
+            );
         }
     }
 }
