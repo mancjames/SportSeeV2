@@ -8,6 +8,8 @@ namespace SportSeeV2.Server.Data
         public DbSet<UserMainEntity> UserMainEntities => Set<UserMainEntity>();
         public DbSet<UserInfosEntity> UserInfosEntities => Set<UserInfosEntity>();
         public DbSet<KeyDataEntity> KeyDataEntities => Set<KeyDataEntity>();
+        public DbSet<UserActivityEntity> UserActivityEntity => Set<UserActivityEntity>();
+        public DbSet<ActivitySessionEntity> ActivitySessionEntity => Set<ActivitySessionEntity>();
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {

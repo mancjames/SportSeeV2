@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SportSeeV2.Server.Data;
 
@@ -10,9 +11,11 @@ using SportSeeV2.Server.Data;
 namespace SportSeeV2.Server.Migrations
 {
     [DbContext(typeof(SportSeeDbContext))]
-    partial class SportSeeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240531163820_updated-user-activity-model")]
+    partial class updateduseractivitymodel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.5");

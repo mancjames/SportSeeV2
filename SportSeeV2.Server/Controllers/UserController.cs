@@ -13,10 +13,12 @@ namespace SportSeeV2.Server.Controllers
     public class UserController : ControllerBase
     {
         private readonly UserMainRepository _userRepository;
+        private readonly ActivitySessionRepository _activitySessionRepository;
 
-        public UserController(UserMainRepository userRepository)
+        public UserController(UserMainRepository userRepository, ActivitySessionRepository activitySessionRepository)
         {
             _userRepository = userRepository;
+            _activitySessionRepository = activitySessionRepository;
         }
 
         [HttpGet]
@@ -30,6 +32,17 @@ namespace SportSeeV2.Server.Controllers
         public async Task<ActionResult<UserMainDto>> Get(int id)
         {
             var user = await _userRepository.GetId(id);
+            if (user == null)
+            {
+                return Problem($"User with ID {id} not found.");
+            }
+            return Ok(user);
+        }
+
+        [HttpGet("{id}/Activity")]
+        public async Task<ActionResult<UserActivityDto>> GetActivityById(int id)
+        {
+            var user = await _activitySessionRepository.GetActivityById(id);
             if (user == null)
             {
                 return Problem($"User with ID {id} not found.");

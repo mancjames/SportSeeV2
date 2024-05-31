@@ -27,7 +27,7 @@ namespace SportSeeV2.Tests
 
             SeedTestData();
 
-            _controller = new UserController(new UserMainRepository(_context));
+            _controller = new UserController(new UserMainRepository(_context), new ActivitySessionRepository(_context));
         }
 
         private void SeedTestData()
