@@ -14,11 +14,13 @@ namespace SportSeeV2.Server.Controllers
     {
         private readonly IUserMainRepository _userRepository;
         private readonly IActivitySessionRepository _activitySessionRepository;
+        private readonly IUserAverageSessionRepository _userAverageSessionRepository;
 
-        public UserController(IUserMainRepository userRepository, IActivitySessionRepository activitySessionRepository)
+        public UserController(IUserMainRepository userRepository, IActivitySessionRepository activitySessionRepository, IUserAverageSessionRepository userAverageSessionRepository)
         {
             _userRepository = userRepository;
             _activitySessionRepository = activitySessionRepository;
+            _userAverageSessionRepository = userAverageSessionRepository;
         }
 
         [HttpGet]
@@ -39,10 +41,21 @@ namespace SportSeeV2.Server.Controllers
             return Ok(user);
         }
 
-        [HttpGet("{id}/Activity")]
+        [HttpGet("{id}/activity")]
         public async Task<ActionResult<UserActivityDto>> GetActivityById(int id)
         {
             var user = await _activitySessionRepository.GetActivityById(id);
+            if (user == null)
+            {
+                return Problem($"User with ID {id} not found.");
+            }
+            return Ok(user);
+        }
+
+        [HttpGet("{id}/average-sessions")]
+        public async Task<ActionResult<UserAverageSessionsDto>>GetAverageSessionsById(int id)
+        {
+            var user = await _userAverageSessionRepository.GetAverageSessionsById(id);
             if (user == null)
             {
                 return Problem($"User with ID {id} not found.");

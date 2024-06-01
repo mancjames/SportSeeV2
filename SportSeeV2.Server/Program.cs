@@ -14,6 +14,7 @@ builder.Services.AddDbContext<SportSeeDbContext>(options =>
 });
 builder.Services.AddScoped<IUserMainRepository, UserMainRepository>();
 builder.Services.AddScoped<IActivitySessionRepository, ActivitySessionRepository>();
+builder.Services.AddScoped<IUserAverageSessionRepository, UserAverageSessionsRepository>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

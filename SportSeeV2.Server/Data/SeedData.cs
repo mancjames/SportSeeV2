@@ -136,7 +136,6 @@ namespace SportSeeV2.Server.Data
                     UserActivityEntityId = 1
                 },
                 
-                // User 18 sessions
                 new ActivitySessionEntity
                 {
                     id = 8,
@@ -193,6 +192,39 @@ namespace SportSeeV2.Server.Data
                     calories = 390,
                     UserActivityEntityId = 2
                 }
+            });
+            builder.Entity<UserAverageSessionsEntity>().HasData(new List<UserAverageSessionsEntity>
+            {
+                new UserAverageSessionsEntity
+                {
+                    id = 1,
+                    UserMainEntityId = 1
+                },
+                new UserAverageSessionsEntity
+                {
+                    id = 2,
+                    UserMainEntityId = 2
+                }
+            });
+            builder.Entity<SessionsEntity>().HasData(new List<SessionsEntity>
+            {
+                new SessionsEntity { id = 1, day = 1, sessionLength = 30, UserAverageSessionsEntityId = 1 },
+                new SessionsEntity { id = 2, day = 2, sessionLength = 23, UserAverageSessionsEntityId = 1 },
+                new SessionsEntity { id = 3, day = 3, sessionLength = 45, UserAverageSessionsEntityId = 1 },
+                new SessionsEntity { id = 4, day = 4, sessionLength = 50, UserAverageSessionsEntityId = 1 },
+                new SessionsEntity { id = 5, day = 5, sessionLength = 0, UserAverageSessionsEntityId = 1 },
+                new SessionsEntity { id = 6, day = 6, sessionLength = 0, UserAverageSessionsEntityId = 1 },
+                new SessionsEntity { id = 7, day = 7, sessionLength = 60, UserAverageSessionsEntityId = 1 }
+            });
+            builder.Entity<SessionsEntity>().HasData(new List<SessionsEntity>
+            {
+                new SessionsEntity { id = 8, day = 1, sessionLength = 30, UserAverageSessionsEntityId = 2 },
+                new SessionsEntity { id = 9, day = 2, sessionLength = 40, UserAverageSessionsEntityId = 2 },
+                new SessionsEntity { id = 10, day = 3, sessionLength = 50, UserAverageSessionsEntityId = 2 },
+                new SessionsEntity { id = 11, day = 4, sessionLength = 30, UserAverageSessionsEntityId = 2 },
+                new SessionsEntity { id = 12, day = 5, sessionLength = 30, UserAverageSessionsEntityId = 2 },
+                new SessionsEntity { id = 13, day = 6, sessionLength = 50, UserAverageSessionsEntityId = 2 },
+                new SessionsEntity { id = 14, day = 7, sessionLength = 50, UserAverageSessionsEntityId = 2 }
             });
         }
     }

@@ -10,6 +10,7 @@ namespace SportSeeV2.Server.Data
         public DbSet<KeyDataEntity> KeyDataEntities => Set<KeyDataEntity>();
         public DbSet<UserActivityEntity> UserActivityEntity => Set<UserActivityEntity>();
         public DbSet<ActivitySessionEntity> ActivitySessionEntity => Set<ActivitySessionEntity>();
+        public DbSet<UserAverageSessionsEntity> UserAverageSessionsEntity => Set<UserAverageSessionsEntity>();
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
