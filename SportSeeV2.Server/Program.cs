@@ -32,7 +32,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors(p => p.WithOrigins("https://localhost:5173").AllowAnyHeader().AllowAnyMethod());
-app.UseCors(p => p.WithOrigins("https://www.hayjames.com").AllowAnyHeader().AllowAnyMethod());
+app.UseCors(p => p.WithOrigins("https://portfolio-sportseev2.netlify.app").AllowAnyHeader().AllowAnyMethod());
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
