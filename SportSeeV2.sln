@@ -7,7 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportSeeV2.Server", "SportS
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "sportseev2.client", "sportseev2.client\sportseev2.client.esproj", "{F0447C1B-F6F0-41BD-9CA4-010DC843AE04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportSeeV2.Tests", "SportSeeV2.Tests\SportSeeV2.Tests.csproj", "{9B2251BC-450A-41CE-B495-29ABF07240EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportSeeV2.Tests", "SportSeeV2.Tests\SportSeeV2.Tests.csproj", "{9B2251BC-450A-41CE-B495-29ABF07240EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A036756C-1E4E-4DAC-AF52-59BD892AFF81}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
