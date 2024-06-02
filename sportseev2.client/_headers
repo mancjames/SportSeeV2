@@ -1,7 +1,5 @@
-# Set Content-Type header for HTML files
 /*.html
-  Content-Type: text/html
+  Content-Type: text/html; charset=utf-8
 
-# Default Content-Type for other files
-/*
+/* 
   Content-Type: application/javascript
