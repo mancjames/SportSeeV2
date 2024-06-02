@@ -1,2 +1,5 @@
+# Set Content-Type header for HTML files
+/*.html
+  Content-Type: text/html
 /*
   Content-Type: application/javascript
