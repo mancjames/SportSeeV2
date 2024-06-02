@@ -27,8 +27,8 @@ export default function StatsSection(props) {
       <div className="statsSection__activity">
        <DailyActivityGraph activity={props.activity} />
         <div className="statsSection__activity-detail">
-        <AverageSpeedChart averageSessions={props.averageSessions.data.sessions} />
-        <PerformanceRadarChart kind={props.performance.data.kind} data={props.performance.data.data} />
+        <AverageSpeedChart averageSessions={props.averageSessions.sessions} />
+        <PerformanceRadarChart kind={props.performance.kind} data={props.performance.data} />
         <ScoreGraph score={props.score}/>
         </div>
       </div>

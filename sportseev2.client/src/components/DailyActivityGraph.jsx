@@ -26,7 +26,7 @@ import {
 
 export default function DailyActivityGraph(props) {
 
-    const data = props.activity.data.sessions.map((d) => ({
+    const data = props.activity.activitySessions.map((d) => ({
         day: getDayOfMonth(d.day),
         kilogram: d.kilogram,
         calories: d.calories

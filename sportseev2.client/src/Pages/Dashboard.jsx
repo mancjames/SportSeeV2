@@ -21,13 +21,17 @@ export default function Dashboard() {
     const { response: averageSessions, loading: loadingSessions } = useFetch(`https://localhost:7042/user/${id}/average-sessions`)
     const { response: performance, loading: loadingPerformance } = useFetch(`https://localhost:7042/user/${id}/performance`)
 
-  if (error) return <Error />
+    if (error) return <Error />
+    console.log('User:', user); // Debugging line
+    console.log('Activity:', activity); // Debugging line
+    console.log('Average Sessions:', averageSessions); // Debugging line
+    console.log('Performance:', performance); // Debugging line
   return (
     <main className="dashboard__container">
       {(!loading && !loadingActivity && !loadingSessions && !loadingPerformance) ? (
         <div className="dashboard__main">
-          <Header name={user.data.userInfos.firstName} />
-          <StatsSection activity={activity} averageSessions={averageSessions} performance={performance} score={user.data.todayScore || user.data.score} nutrition={user.data.keyData}/>
+          <Header name={user.userInfos.firstName} />
+          <StatsSection activity={activity} averageSessions={averageSessions} performance={performance} score={user.todayScore} nutrition={user.keyData}/>
         </div>
       ) : (
         'Loading...'

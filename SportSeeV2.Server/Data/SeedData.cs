@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SportSeeV2.Server.Enums;
 using System.Collections.Generic;
 
 namespace SportSeeV2.Server.Data
@@ -226,6 +227,33 @@ namespace SportSeeV2.Server.Data
                 new SessionsEntity { id = 13, day = 6, sessionLength = 50, UserAverageSessionsEntityId = 2 },
                 new SessionsEntity { id = 14, day = 7, sessionLength = 50, UserAverageSessionsEntityId = 2 }
             });
+            builder.Entity<UserPerformanceEntity>().HasData(
+                 new UserPerformanceEntity
+                 {
+                     Id = 1,
+                     UserMainEntityId = 1
+                 },
+                new UserPerformanceEntity
+                {
+                    Id = 2,
+                    UserMainEntityId = 2
+                }
+            );
+            builder.Entity<PerformanceDataEntity>().HasData(
+                    new PerformanceDataEntity { Id = 1, Value = 80, Kind = PerformanceKind.Cardio, UserPerformanceEntityId = 1 },
+                    new PerformanceDataEntity { Id = 2, Value = 120, Kind = PerformanceKind.Energy, UserPerformanceEntityId = 1 },
+                    new PerformanceDataEntity { Id = 3, Value = 140, Kind = PerformanceKind.Endurance, UserPerformanceEntityId = 1 },
+                    new PerformanceDataEntity { Id = 4, Value = 50, Kind = PerformanceKind.Strength, UserPerformanceEntityId = 1 },
+                    new PerformanceDataEntity { Id = 5, Value = 200, Kind = PerformanceKind.Speed, UserPerformanceEntityId = 1 },
+                    new PerformanceDataEntity { Id = 6, Value = 90, Kind = PerformanceKind.Intensity, UserPerformanceEntityId = 1 },
+
+                    new PerformanceDataEntity { Id = 7, Value = 200, Kind = PerformanceKind.Cardio, UserPerformanceEntityId = 2 },
+                    new PerformanceDataEntity { Id = 8, Value = 240, Kind = PerformanceKind.Energy, UserPerformanceEntityId = 2 },
+                    new PerformanceDataEntity { Id = 9, Value = 80, Kind = PerformanceKind.Endurance, UserPerformanceEntityId = 2 },
+                    new PerformanceDataEntity { Id = 10, Value = 80, Kind = PerformanceKind.Strength, UserPerformanceEntityId = 2 },
+                    new PerformanceDataEntity { Id = 11, Value = 220, Kind = PerformanceKind.Speed, UserPerformanceEntityId = 2 },
+                    new PerformanceDataEntity { Id = 12, Value = 110, Kind = PerformanceKind.Intensity, UserPerformanceEntityId = 2 }
+                );
         }
     }
 }
