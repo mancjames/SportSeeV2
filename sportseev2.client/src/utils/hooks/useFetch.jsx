@@ -1,14 +1,18 @@
 import { useState, useEffect } from 'react'
 
-export default function useFetch(link) {
+const REACT_APP_API_BASE_URL = window.REACT_APP_API_BASE_URL;
+
+export default function useFetch(endpoint) {
     const [response, setResponse] = useState(null)
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false)
 
+    const url = `${REACT_APP_API_BASE_URL}${endpoint}`;
+
     useEffect(() => {
         const doFetch = async () => {
         try {
-            const res = await fetch(link);
+            const res = await fetch(url);
             if(res.status === 200){
                 const json = await res.json();
                 setResponse(json);
@@ -24,6 +28,6 @@ export default function useFetch(link) {
         }
         };
         doFetch();
-    }, [link]);
+    }, [url]);
     return { response, loading , error};
 }

@@ -1,5 +1,6 @@
 import { fileURLToPath, URL } from 'node:url';
 import { defineConfig } from 'vite';
+import dotenv from 'dotenv';
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
 import fs from 'fs';
@@ -35,6 +36,11 @@ if (!fs.existsSync(certFilePath) || !fs.existsSync(keyFilePath)) {
         throw new Error("Could not create certificate.");
     }
 }
+
+dotenv.config();
+
+console.log(process.env);
+console.log(import.meta.env);
 
 // https://vitejs.dev/config/
 export default defineConfig({

@@ -16,10 +16,10 @@ import Error from './Error';
  */
 export default function Dashboard() {
     let { id } = useParams()
-    const { response: user, loading, error } = useFetch(`https://localhost:7042/user/${id}`)
-    const { response: activity, loading: loadingActivity } = useFetch(`https://localhost:7042/user/${id}/activity`)
-    const { response: averageSessions, loading: loadingSessions } = useFetch(`https://localhost:7042/user/${id}/average-sessions`)
-    const { response: performance, loading: loadingPerformance } = useFetch(`https://localhost:7042/user/${id}/performance`)
+    const { response: user, loading, error } = useFetch(`/user/${id}`)
+    const { response: activity, loading: loadingActivity } = useFetch(`/user/${id}/activity`)
+    const { response: averageSessions, loading: loadingSessions } = useFetch(`/user/${id}/average-sessions`)
+    const { response: performance, loading: loadingPerformance } = useFetch(`/user/${id}/performance`)
 
     if (error) return <Error />
     console.log('User:', user); // Debugging line
